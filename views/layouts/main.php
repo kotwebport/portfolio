@@ -4,9 +4,12 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use app\assets\AppAsset;
+use app\assets\ltAppAsset;
+use app\assets\PortfolioAsset;
 
-AppAsset::register($this);
+PortfolioAsset::register($this);
+ltAppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

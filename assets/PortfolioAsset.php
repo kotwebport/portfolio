@@ -15,18 +15,18 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAsset extends AssetBundle
+class PortfolioAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'css/portfolio.css',
     ];
     public $js = [
-        'js/site.js'
+        'js/portfolio.js'
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        'yii\web\YiiAsset', //jQuery
+        'yii\bootstrap\BootstrapPluginAsset', //Bootstrap.min.css и Bootstrap.min.js
     ];
 }

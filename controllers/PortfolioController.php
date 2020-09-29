@@ -2,9 +2,7 @@
 
 namespace app\controllers;
 
-use yii\web\Controller;
-
-class SiteController extends Controller
+class PortfolioController extends AppController
 {
 
     public function actionIndex()
