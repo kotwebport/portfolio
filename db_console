@@ -1,0 +1,16 @@
+Создание базы данных и таблицы основных отделов магазина через консольные команды:
+
+mysql -u root -p;
+
+CREATE DATABASE portfolio;
+USE `portfolio`;
+
+CREATE TABLE `warehouse_section` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `name` (`name`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
