@@ -1,7 +1,0 @@
-/**
- * logging in to the mySql environment, creating DB portfolio, and main tables
- */
-
-mysql -u root -p;
-CREATE DATABASE portfolio COLLATE 'utf8_general_ci';
-USE portfolio;
