@@ -1,4 +1,4 @@
-Создание базы данных и таблицы основных отделов магазина через консольные команды:
+Создание нормализованной базы данных с таблицами основных отделов и сегментов магазина через консольные команды:
 
 mysql -u root -p;
 
@@ -14,3 +14,22 @@ CREATE TABLE `warehouse_section` (
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
+
+INSERT INTO `portfolio`.`warehouse_section` (`name`) VALUES ('foodstuff');
+INSERT INTO `portfolio`.`warehouse_section` (`name`) VALUES ('household');
+
+CREATE TABLE `warehouse_variety` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`section_id` INT(11) UNSIGNED NOT NULL,
+	`name` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `name` (`name`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+INSERT INTO `portfolio`.`warehouse_variety` (`section_id`) VALUES('1') (`name`) VALUES ('milk');
+INSERT INTO `portfolio`.`warehouse_variety` (`section_id`) VALUES('1') (`name`) VALUES ('bread');
+INSERT INTO `portfolio`.`warehouse_variety` (`section_id`) VALUES('1') (`name`) VALUES ('sausage');
+INSERT INTO `portfolio`.`warehouse_variety` (`section_id`) VALUES('1') (`name`) VALUES ('fruits');
