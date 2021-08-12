@@ -15,22 +15,24 @@ ltAppAsset::register($this);
 <?php $this->beginPage() ?>
 
 <?php
-	$directions = [
-		'landing' => 'Лендинг',
-		'visiting' => 'Визитка',
-		'info' => 'Инфо',
-		'personal' => 'Персональный',
-		'corporate' => 'Корпоративный',
-		'declaration' => 'Объявления',
-		'shop' => 'Магазин',
-		'social' => 'Соц.сеть',
-		'multimedia' => 'Мультимедиа',
-		'constructor' => 'Конструктор'		
-	]
+$directions = [
+    'landing' => 'Лендинг',
+    'visiting' => 'Визитка',
+    'info' => 'Инфо',
+    'personal' => 'Персональный',
+    'corporate' => 'Корпоративный',
+    'declaration' => 'Объявления',
+    'shop' => 'Магазин',
+    'social' => 'Соц.сеть',
+    'multimedia' => 'Мультимедиа',
+    'constructor' => 'Конструктор',
+    'index' => 'Главная',
+]
 ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <link href="/css/portfolio.less" rel="stylesheet/less">
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,18 +44,19 @@ ltAppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap navbar" style="padding-top: 40px">
-	<div id="direction-navigation">		
-		<ul>
-			<?php foreach ($directions as $directionLink => $directionName): ?>
-			<li class="direction"><a href="<?= Url::to(['portfolio/'.$directionLink]) ?>"><?= $directionName ?></a></li>	
-			<?php endforeach; ?>			
-		</ul>
-	</div>
+    <div id="direction-navigation">
+        <ul>
+            <?php foreach ($directions as $directionLink => $directionName): ?>
+                <li class="direction"><a
+                            href="<?= Url::to(['portfolio/' . $directionLink]) ?>"><?= $directionName ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 </div>
-	
-	
+
+
 <div class="wrap">
-   <div class="container">
+    <div class="container">
         <?= $content ?>
     </div>
 </div>

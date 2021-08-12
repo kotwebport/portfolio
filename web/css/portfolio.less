@@ -1,0 +1,55 @@
+/* Подключение шрифтов */
+
+@font-face {
+  font-family: 'xanthus';
+  src: url('../fonts/ofont.ru_Xanthus.ttf');
+}
+
+@font-face {
+  font-family: 'marutya';
+  src: url('../fonts/ofont.ru_Marutya.ttf');
+}
+
+body {
+  /* Навигация по портфолио */
+  div#direction-navigation {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    background-color: #000000d4;
+    margin-top: -50px;
+    ul {
+      height: 80px;
+      margin-top: 20px;
+      margin-right: 5%;
+      li {
+        padding: 5px 10px;
+        list-style-type: none;
+        float: right;
+        a:hover {
+          background-color: black;
+          color: #f5ffb1;
+        }
+        a {
+          text-decoration: none;
+          display: block;
+          color: #b2ff61;
+          padding: 5px;
+          border-radius: 5px;
+        }
+
+      }
+    }
+
+  }
+
+  /* Контент главной страницы портфолео */
+  div#portfolio {
+    margin-top: 50px;
+    font-family: marutya;
+    color: #00b3ee;
+    font-size: 3em;
+  }
+
+}
+
