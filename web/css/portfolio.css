@@ -1,3 +1,26 @@
+/* Подключение шрифтов */
+
+@font-face {
+	font-family: 'xanthus';
+	src: url('../fonts/ofont.ru_Xanthus.ttf');	
+}
+
+@font-face {
+	font-family: 'marutya';
+		src: url('../fonts/ofont.ru_Marutya.ttf');
+}
+
 body {
-    background-color: #99938b;
+	background-color: #99938b;
+}
+
+#start {
+	font-family: xanthus;
+	color: orange;
+}
+
+#stop {
+	font-family: marutya;
+	font-size: 1em;
+	color: blue;
 }
