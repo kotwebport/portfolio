@@ -47,8 +47,9 @@ $directions = [
     <div id="direction-navigation">
         <ul>
             <?php foreach ($directions as $directionLink => $directionName): ?>
-                <li class="direction"><a
-                            href="<?= Url::to(['portfolio/' . $directionLink]) ?>"><?= $directionName ?></a></li>
+				<div class directionBox>
+                	<li class="direction"><a href="<?= Url::to(['portfolio/' . $directionLink]) ?>"><?= $directionName ?></a></li>
+				</div>	
             <?php endforeach; ?>
         </ul>
     </div>
