@@ -7,72 +7,56 @@ use yii\db\Migration;
  */
 class m210813_090048_portfolio_migration extends Migration
 {
-    
+
     public function safeUp()
     {
-		  $this->createTable('portfolio-direction', [
+
+        $this->createTable('navigation_direction', [
             'id' => $this->primaryKey(),
-            'link' => $this->string(),
-			'name' => $this->string(),
-		  ]);
-		  
-		  $this->createTable('portfolio-work', [
+            'name' => $this->string(),
+        ]);
+
+        $this->createTable('navigation_work', [
             'id' => $this->primaryKey(),
-			'direction_id' => $this->integer(),
+            'direction_id' => $this->integer(),
             'link' => $this->string(),
-            'name' => $this->string(),			  
-		  ]);
-		
-		$this->addForeignKey('direction-work-fk', 'portfolio-work', 'direction_id', 'portfolio-direction', 'id', 'CASCADE', 'CASCADE');		
-		
-		/**
-			Направления портфолио
-		*/
-			$directions = [
-				'landing' => 'Лендинг',
-				'visiting' => 'Визитка',
-				'info' => 'Инфо',
-				'personal' => 'Персональный',
-				'corporate' => 'Корпоративный',
-				'declaration' => 'Объявления',
-				'shop' => 'Магазин',
-				'social' => 'Соц.сеть',
-				'multimedia' => 'Мультимедиа',
-				'constructor' => 'Конструктор',
-				'index' => 'Главная',
-			];
-		
-		
-		/**
-			Подготовка массива для заполнение таблицы portfolio-direction
-		*/
-		
-		$i = 0;
-		
-		foreach($directions as $link => $name){
-			$portfolioDirections[$i]['link'] = $link;
-			$portfolioDirections[$i]['name'] = $name;			
-			$i++;			
-		}
-		
-		foreach($portfolioDirections as $portfolioDirection){
-			//$this->insert('portfolio-direction', $portfolioDirection);	
-			print_r($portfolioDirection);
-		}
-		
-		
-	
-					
-			
-				
+            'name' => $this->string(),
+        ]);
+
+
+        $this->addForeignKey('direction-work-fk', 'navigation_work', 'direction_id', 'navigation_direction', 'id', 'CASCADE', 'CASCADE');
+
+        $directions = [
+            'Лендинг',
+            'Визитка',
+            'Инфо',
+            'Персональный',
+            'Корпоративный',
+            'Объявления',
+            'Магазин',
+            'Соц.сеть',
+            'Мультимедиа',
+            'Конструктор',
+        ];
+
+        /**
+         * Подготовка массива для заполнение таблицы navigation_direction
+         */
+
+        foreach ($directions as $direction) {
+            $insertDirections[]['name'] = $direction;
+        }
+        foreach ($insertDirections as $insertDirection) {
+            $this->insert('navigation_direction', $insertDirection);
+        }
+
     }
-	
-	
-	
-	public function safeDown()
+
+
+    public function safeDown()
     {
-		$this->dropTable('portfolio-work');
-		$this->dropTable('portfolio-direction');
+        $this->dropTable('navigation_work');
+        $this->dropTable('navigation_direction');
     }
 
 }

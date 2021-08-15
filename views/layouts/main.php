@@ -10,25 +10,15 @@ use yii\helpers\Url;
 
 PortfolioAsset::register($this);
 ltAppAsset::register($this);
-
 ?>
+
+<!-- Выборка всех направлений Портфолео из ДБ -->
+<?php $navigatorDirections = \app\models\NavigationDirection::find()->asArray()->all(); ?>
+
 <?php $this->beginPage() ?>
-
 <?php
-$directions = [
-    'landing' => 'Лендинг',
-    'visiting' => 'Визитка',
-    'info' => 'Инфо',
-    'personal' => 'Персональный',
-    'corporate' => 'Корпоративный',
-    'declaration' => 'Объявления',
-    'shop' => 'Магазин',
-    'social' => 'Соц.сеть',
-    'multimedia' => 'Мультимедиа',
-    'constructor' => 'Конструктор',
-    'index' => 'Главная',
-]
 ?>
+
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
@@ -43,18 +33,22 @@ $directions = [
 <body>
 <?php $this->beginBody() ?>
 
+<!--Блок навигации Портфолео -->
 <div class="wrap navbar" style="padding-top: 40px">
-    <div id="direction-navigation">
-        <ul>
-            <?php foreach ($directions as $directionLink => $directionName): ?>
-				<div class directionBox>
-                	<li class="direction"><a href="<?= Url::to(['portfolio/' . $directionLink]) ?>"><?= $directionName ?></a></li>
-				</div>	
-            <?php endforeach; ?>
-        </ul>
+    <div id="direction-nav">
+        <a id="home-page" href="<?= Url::to(['portfolio/index']) ?>"><?= 'На главную' ?></a>
+        <?php foreach ($navigatorDirections as $navigatorDirection): ?>
+            <div class="work-nav">
+                <label><?= $navigatorDirection['name'] ?></label>
+                <!-- Выборка всех работ Портфолео одного направления из ДБ -->
+                <?php $navigatorWorks = \app\models\NavigationWork::find()->where(['direction_id' => $navigatorDirection['id']])->asArray()->all(); ?>
+                <?php foreach ($navigatorWorks as $navigatorWork): ?>
+                    <a href="<?= Url::to(['portfolio/' . $navigatorWork['link']]) ?>"><?= $navigatorWork['name'] ?></a>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
-
 
 <div class="wrap">
     <div class="container">
