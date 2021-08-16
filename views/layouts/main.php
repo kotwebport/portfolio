@@ -12,7 +12,6 @@ PortfolioAsset::register($this);
 ltAppAsset::register($this);
 ?>
 
-<!-- Выборка всех направлений Портфолео из ДБ -->
 <?php $navigatorDirections = \app\models\NavigationDirection::find()->asArray()->all(); ?>
 
 <?php $this->beginPage() ?>
@@ -33,20 +32,22 @@ ltAppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<!--Блок навигации Портфолео -->
+<!--Блок навигации по направлениям Портфолио -->
 <div class="wrap navbar" style="padding-top: 40px">
     <div id="direction-nav">
         <a id="home-page" href="<?= Url::to(['portfolio/index']) ?>"><?= 'На главную' ?></a>
-        <?php foreach ($navigatorDirections as $navigatorDirection): ?>
-            <div class="work-nav">
-                <label><?= $navigatorDirection['name'] ?></label>
-                <!-- Выборка всех работ Портфолео одного направления из ДБ -->
+		<div id="label-block">
+        <?php foreach ($navigatorDirections as $navigatorDirection): ?>			
+		<label><?= $navigatorDirection['name'] ?></label>
+		</div>	
+				<!--Блок навигации по работам одного направления-->	
+				<div class="work-nav">
                 <?php $navigatorWorks = \app\models\NavigationWork::find()->where(['direction_id' => $navigatorDirection['id']])->asArray()->all(); ?>
                 <?php foreach ($navigatorWorks as $navigatorWork): ?>
                     <a href="<?= Url::to(['portfolio/' . $navigatorWork['link']]) ?>"><?= $navigatorWork['name'] ?></a>
                 <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
+         <?php endforeach; ?>
+		</div>			
     </div>
 </div>
 
