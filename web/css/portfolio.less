@@ -11,37 +11,50 @@
 }
 
 body {
-  /* Навигация по направлениям портфолио */
-  a#home-page{
-    float: left;
-    margin: 20px;
+
+  /* На главную */
+  a#home-page {
+    font-family: marutya;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #b3ffb3;
+    position: fixed;
+    left: 10px;
+    top: 2px;
+    z-index: 10;
   }
 
-  div#direction-nav {
+  /* Навигация  */
+  div#navigation {
     position: fixed;
     width: 100%;
-    height: 100px;
-    background-color: #000000d4;
+    height: 140px;
+    background-color: rgba(2, 19, 4, 0.83);
     margin-top: -50px;
-	  div#label-block{
-		  margin-top: 50px;		  
-		  label{
-			  float: right;
-			  color: green;
-			  margin_left: 5px;
-		  }  
-	  }
-	  
-/* Навигация по работам одного направления исходное состояние */
-    div.work-nav {	
-	  display: none;     
+    div#direction-nav {
+      float: right;
+      margin-top: 55px;
+      margin-right: 20px;
+      div.direction {
+        float: right;
+        font-family: marutya;
+        font-size: 1.2em;
+        color: #b3ffb3;
+        margin-left: 5px;
+        padding-right: 20px;
+        padding-bottom: 5px;
+      }
     }
-/* Навигация по работам одного направления активное состояние  */
-	div.work-nav-active{ 
-	  a {
-        text-decoration: none;
+    /* Навигация по работам одного направления */
+    div.work-nav {
+      display: none;
+      height: 100px;
+      text-align: center;
+      clear: left;
+      a.work {
         display: block;
-        color: #b2ff61;
+        text-decoration: none;
+        color: #b3ffb3;
         padding: 5px;
         border-radius: 5px;
       }
@@ -50,8 +63,8 @@ body {
 
   /* Контент главной страницы портфолео */
   div#portfolio {
-    margin-top: 50px;
     font-family: marutya;
+    margin-top: 150px;
     color: #00b3ee;
     font-size: 3em;
   }

@@ -36,7 +36,6 @@ class m210813_090048_portfolio_migration extends Migration
             'Магазин',
             'Соц.сеть',
             'Мультимедиа',
-            'Конструктор',
         ];
 
         /**

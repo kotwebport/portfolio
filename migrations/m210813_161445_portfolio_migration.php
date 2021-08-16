@@ -32,8 +32,6 @@ class m210813_161445_portfolio_migration extends Migration
         $this->insert('navigation_work', ['direction_id' => '8', 'link' => 'social', 'name' => 'Соц.сеть-2']);
         $this->insert('navigation_work', ['direction_id' => '9', 'link' => 'multimedia', 'name' => 'Мультимедиа-1']);
         $this->insert('navigation_work', ['direction_id' => '9', 'link' => 'multimedia', 'name' => 'Мультимедиа-2']);
-        $this->insert('navigation_work', ['direction_id' => '10', 'link' => 'constructor', 'name' => 'Конструктор-1']);
-        $this->insert('navigation_work', ['direction_id' => '10', 'link' => 'constructor', 'name' => 'Конструктор-2']);
     }
 
 

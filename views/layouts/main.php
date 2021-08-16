@@ -32,22 +32,28 @@ ltAppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<!--Блок навигации по направлениям Портфолио -->
-<div class="wrap navbar" style="padding-top: 40px">
-    <div id="direction-nav">
+<div class="wrap" style="padding-top: 40px">
+    <div class="cotainer">
+        <!--Панель навигации -->
         <a id="home-page" href="<?= Url::to(['portfolio/index']) ?>"><?= 'На главную' ?></a>
-		<div id="label-block">
-        <?php foreach ($navigatorDirections as $navigatorDirection): ?>			
-		<label><?= $navigatorDirection['name'] ?></label>
-		</div>	
-				<!--Блок навигации по работам одного направления-->	
-				<div class="work-nav">
-                <?php $navigatorWorks = \app\models\NavigationWork::find()->where(['direction_id' => $navigatorDirection['id']])->asArray()->all(); ?>
-                <?php foreach ($navigatorWorks as $navigatorWork): ?>
-                    <a href="<?= Url::to(['portfolio/' . $navigatorWork['link']]) ?>"><?= $navigatorWork['name'] ?></a>
+        <div id="navigation">
+            <!--Направления Портфолио-->
+            <div id="direction-nav">
+                <?php foreach ($navigatorDirections as $navigatorDirection): ?>
+                    <div class="direction"><?= $navigatorDirection['name'] ?></div>
                 <?php endforeach; ?>
-         <?php endforeach; ?>
-		</div>			
+            </div>
+            <?php foreach ($navigatorDirections as $navigatorDirection): ?>
+                <!--Навигация по работам одного направления-->
+                <div class="work-nav">
+                    <?php $navigatorWorks = \app\models\NavigationWork::find()->where(['direction_id' => $navigatorDirection['id']])->asArray()->all(); ?>
+                    <?php foreach ($navigatorWorks as $navigatorWork): ?>
+                        <a class="work"
+                           href="<?= Url::to(['portfolio/' . $navigatorWork['link']]) ?>"><?= $navigatorWork['name'] ?></a>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>
 
