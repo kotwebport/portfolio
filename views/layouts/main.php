@@ -21,7 +21,6 @@ ltAppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    <link href="/css/portfolio.less" rel="stylesheet/less">
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,23 +32,23 @@ ltAppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap" style="padding-top: 40px">
-    <div class="cotainer">
-        <!--Панель навигации -->
-        <a id="home-page" href="<?= Url::to(['portfolio/index']) ?>"><?= 'На главную' ?></a>
-        <div id="navigation">
-            <!--Направления Портфолио-->
-            <div id="direction-nav">
-                <?php foreach ($navigatorDirections as $navigatorDirection): ?>
-                    <div class="direction"><?= $navigatorDirection['name'] ?></div>
-                <?php endforeach; ?>
-            </div>
+    <!--Панель навигации -->
+    <a id="home-page" href="<?= Url::to(['portfolio/index']) ?>"><?= 'На главную' ?></a>
+    <div id="navigation">
+        <div id="direction-nav">
             <?php foreach ($navigatorDirections as $navigatorDirection): ?>
-                <!--Навигация по работам одного направления-->
-                <div class="work-nav">
-                    <?php $navigatorWorks = \app\models\NavigationWork::find()->where(['direction_id' => $navigatorDirection['id']])->asArray()->all(); ?>
+                <div class="direction" data-id=<?= $navigatorDirection['id'] ?>>
+                    <?= $navigatorDirection['name'] ?>
+                </div>
+            <?php endforeach; ?>
+            <?php foreach ($navigatorDirections as $navigatorDirection): ?>
+                <div class="work-nav" data-id=<?= $navigatorDirection['id'] ?>>
+                    <?php $navigatorWorks = \app\models\NavigationWork::find()->where(
+                        ['direction_id' => $navigatorDirection['id']])->asArray()->all(); ?>
                     <?php foreach ($navigatorWorks as $navigatorWork): ?>
-                        <a class="work"
-                           href="<?= Url::to(['portfolio/' . $navigatorWork['link']]) ?>"><?= $navigatorWork['name'] ?></a>
+                        <a class="work" href="<?= Url::to(['portfolio/' . $navigatorWork['link']]) ?>">
+                            <?= $navigatorWork['name'] ?>
+                        </a>
                     <?php endforeach; ?>
                 </div>
             <?php endforeach; ?>

@@ -20,9 +20,9 @@ class PortfolioAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/portfolio.css'
     ];
     public $js = [
-        'js/less.min.js',
         'js/portfolio.js'
     ];
     public $depends = [

@@ -1,0 +1,82 @@
+/* Подключение шрифтов */
+
+@font-face {
+    font-family: 'xanthus';
+    src: url('../fonts/ofont.ru_Xanthus.ttf');
+}
+
+@font-face {
+    font-family: 'marutya';
+    src: url('../fonts/ofont.ru_Marutya.ttf');
+}
+
+/* На главную */
+a#home-page {
+    font-family: marutya;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #b3ffb3;
+    position: fixed;
+    left: 10px;
+    top: 2px;
+    z-index: 10;
+}
+
+/* Навигация  */
+div#navigation {
+    position: fixed;
+    width: 100%;
+    height: 140px;
+    background-color: rgba(2, 19, 4, 0.83);
+    margin-top: -50px;
+}
+
+div#direction-nav {
+    float: right;
+    margin-top: 55px;
+    margin-right: 20px;
+}
+
+div.direction {
+    float: right;
+    font-family: marutya;
+    font-size: 1.2em;
+    color: #b3ffb3;
+    margin-left: 5px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+}
+
+/* Навигация по работам одного направления */
+div.work-nav {
+    display: none;
+}
+
+div.work-nav-open {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    left: 40%;
+    top: 200px;
+    background: orange;
+    display: block;
+}
+
+a.work {
+    display: block;
+    text-decoration: none;
+    color: #b3ffb3;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Контент главной страницы портфолео */
+div#portfolio {
+    font-family: marutya;
+    margin-top: 150px;
+    color: #00b3ee;
+    font-size: 3em;
+}
+
+
+
