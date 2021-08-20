@@ -21,6 +21,7 @@ class m210813_090048_portfolio_migration extends Migration
             'direction_id' => $this->integer(),
             'link' => $this->string(),
             'name' => $this->string(),
+			'image' => $this->string(),
         ]);
 
 
