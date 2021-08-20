@@ -1,8 +1,5 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 use yii\helpers\Html;
 use app\assets\ltAppAsset;
 use app\assets\PortfolioAsset;
@@ -40,20 +37,23 @@ ltAppAsset::register($this);
                 <div class="direction" data-id=<?= $navigatorDirection['id'] ?>>
                     <?= $navigatorDirection['name'] ?>
                 </div>
-            <?php endforeach; ?>
-            <?php foreach ($navigatorDirections as $navigatorDirection): ?>
-                <div class="work-nav" data-id=<?= $navigatorDirection['id'] ?>>
+            <?php endforeach; ?>            
+        </div>
+    </div>
+	
+	<?php foreach ($navigatorDirections as $navigatorDirection): ?>
+                <div class="work-nav" data-id=<?= $navigatorDirection['id'] ?> >
                     <?php $navigatorWorks = \app\models\NavigationWork::find()->where(
                         ['direction_id' => $navigatorDirection['id']])->asArray()->all(); ?>
                     <?php foreach ($navigatorWorks as $navigatorWork): ?>
                         <a class="work" href="<?= Url::to(['portfolio/' . $navigatorWork['link']]) ?>">
-                            <?= $navigatorWork['name'] ?>
+							<div class="work-presentation">
+								<?= Html::img("@web/images/portfolio_works/{$navigatorWork['image']}", ['alt' => $navigatorWork['name']]) ?>
+							</div>
                         </a>
                     <?php endforeach; ?>
                 </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
+     <?php endforeach; ?>
 </div>
 
 <div class="wrap">
