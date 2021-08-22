@@ -22,6 +22,7 @@ class m210813_090048_portfolio_migration extends Migration
             'link' => $this->string(),
             'name' => $this->string(),
 			'image' => $this->string(),
+            'best' => $this->boolean()
         ]);
 
 

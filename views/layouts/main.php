@@ -10,10 +10,18 @@ ltAppAsset::register($this);
 ?>
 
 <?php $navigatorDirections = \app\models\NavigationDirection::find()->asArray()->all(); ?>
+<?php $bestWorks = \app\models\NavigationWork::find()->where(['best' => true])->asArray()->all(); ?>
+<?php
+/**
+ * Функция позиционирования трех представленных работ
+ * @param $workNumber
+ * @return string
+ */
+
+?>
+
 
 <?php $this->beginPage() ?>
-<?php
-?>
 
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -29,7 +37,7 @@ ltAppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap" style="padding-top: 40px">
-    <!--Панель навигации -->
+    <!--Панель навигации по направлениям-->
     <a id="home-page" href="<?= Url::to(['portfolio/index']) ?>"><?= 'На главную' ?></a>
     <div id="navigation">
         <div id="direction-nav">
@@ -37,23 +45,33 @@ ltAppAsset::register($this);
                 <div class="direction" data-id=<?= $navigatorDirection['id'] ?>>
                     <?= $navigatorDirection['name'] ?>
                 </div>
-            <?php endforeach; ?>            
+            <?php endforeach; ?>
         </div>
     </div>
-	
-	<?php foreach ($navigatorDirections as $navigatorDirection): ?>
-                <div class="work-nav" data-id=<?= $navigatorDirection['id'] ?> >
-                    <?php $navigatorWorks = \app\models\NavigationWork::find()->where(
-                        ['direction_id' => $navigatorDirection['id']])->asArray()->all(); ?>
-                    <?php foreach ($navigatorWorks as $navigatorWork): ?>
-                        <a class="work" href="<?= Url::to(['portfolio/' . $navigatorWork['link']]) ?>">
-							<div class="work-presentation">
-								<?= Html::img("@web/images/portfolio_works/{$navigatorWork['image']}", ['alt' => $navigatorWork['name']]) ?>
-							</div>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-     <?php endforeach; ?>
+
+    <!--Презентация лучших работ на главной странице-->
+    <div id="work-nav-best">
+        <?php foreach ($bestWorks as $bestWork): ?>
+            <a class="work
+               href="<?= Url::to(['portfolio/' . $bestWork['link']]) ?>">
+                <?= Html::img("@web/images/portfolio_works/{$bestWork['image']}", ['alt' => $bestWork['name']]) ?>
+            </a>
+        <?php endforeach; ?>
+    </div>
+
+    <!--Навигация по работам выбранного направления-->
+    <?php foreach ($navigatorDirections as $navigatorDirection): ?>
+        <div class="work-nav" data-id=<?= $navigatorDirection['id'] ?>>
+            <?php $navigatorWorks = \app\models\NavigationWork::find()->where(
+                ['direction_id' => $navigatorDirection['id']])->asArray()->all(); ?>
+            <?php foreach ($navigatorWorks as $navigatorWork): ?>
+                <a class="work
+                href="<?= Url::to(['portfolio/' . $navigatorWork['link']]) ?>">
+                    <?= Html::img("@web/images/portfolio_works/{$navigatorWork['image']}", ['alt' => $navigatorWork['name']]) ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
 </div>
 
 <div class="wrap">
