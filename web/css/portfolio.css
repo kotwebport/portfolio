@@ -11,6 +11,7 @@
 }
 
 /* На главную */
+
 a#home-page {
     font-family: marutya;
     font-size: 1.2em;
@@ -22,7 +23,8 @@ a#home-page {
     z-index: 50;
 }
 
-/* Навигация  */
+/* Навигация по направлениям */
+
 div#navigation {
     position: fixed;
     width: 100%;
@@ -49,20 +51,23 @@ div.direction {
 }
 
 /* Навигация по работам одного направления */
+
 div.work-nav {
     display: none;
 }
 
 div.work-nav-open, div#work-nav-best {
-    display: inline-block;
     text-align: center;
     margin-top: 200px;
-    width: auto;
+    width: 100%;
+}
 
+div.work-nav-open {
+    display: inline-block;
+}
 
-    /*для разработки*/
-    background-color: yellowgreen;
-    height: 250px;
+div#work-nav-best {
+    display: none;
 }
 
 a.work {
