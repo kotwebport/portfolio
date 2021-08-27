@@ -19,7 +19,7 @@ a#home-page {
     color: #b3ffb3;
     position: fixed;
     left: 10px;
-    top: 2px;
+    top: 10px;
     z-index: 50;
 }
 
@@ -28,7 +28,7 @@ a#home-page {
 div#navigation {
     position: fixed;
     width: 100%;
-    height: 200px;
+    height: 180px;
     background-color: rgba(2, 19, 4, 0.83);
     margin-top: -50px;
     z-index: 40;
@@ -36,7 +36,7 @@ div#navigation {
 
 div#direction-nav {
     float: right;
-    margin-top: 55px;
+    margin-top: 80px;
     margin-right: 20px;
 }
 
@@ -47,7 +47,7 @@ div.direction {
     color: #b3ffb3;
     margin-left: 5px;
     padding-right: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
 }
 
 /* Навигация по работам одного направления */
@@ -58,7 +58,7 @@ div.work-nav {
 
 div.work-nav-open, div#work-nav-best {
     text-align: center;
-    margin-top: 200px;
+    margin-top: 170px;
     width: 100%;
 }
 
@@ -79,10 +79,11 @@ a.work {
 }
 
 a.work img {
-    width: 30%;
+   
 }
 
 /* Контент главной страницы портфолео */
+
 div#portfolio {
     font-family: marutya;
     margin-top: 150px;
